@@ -1,0 +1,193 @@
+/* styles.css */
+
+/* Base Colors */
+:root {
+    --base: #5BB9B8;
+    --subtle: #54a1a0;
+    --rain: #2C3845;
+    --poppy: #BD2A4E;
+    --mobile-small: 460px;
+    --mobile: 720px;
+}
+
+/* Global Styles */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+html.open, body.open {
+    height: 100%;
+    overflow: hidden;
+}
+
+html {
+    padding: 40px;
+    font-size: 62.5%;
+}
+
+body {
+    padding: 20px;
+    background-color: var(--base);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    font-size: 1.6rem;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Main Content */
+main {
+    background-color: var(--rain);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Logo Styles */
+.logo-container {
+    text-align: center;
+    margin-bottom: 2px; /* Space between logo and tables */
+}
+
+.logo {
+    max-width: 300px; /* Adjust the size as needed */
+    height: 200px;
+    object-fit: contain; /* Ensure the logo scales properly */
+}
+
+/* New Title Styles */
+.page-title {
+    text-align: center;
+    font-size: 5rem;
+    margin: 0;
+    padding: 0; /* Adjusted margins for spacing */
+    color: #fff;
+}
+
+/* Project Title */
+.project-title {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+/* Table Headers */
+thead th {
+    background-color: #22303C; /* Darken(var(--rain), 6%) */
+    color: #fff;
+    border: 1px solid #22303C;
+    padding: 10px;
+    text-align: center; /* Center align headers */
+    font-weight: 700;
+}
+
+/* Table Body */
+tbody tr:nth-child(even) {
+    background-color: #1A2B35; /* Darken(var(--rain),4%) */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #2C3845; /* Slightly lighter for contrast */
+}
+
+td {
+    border: 1px solid #1A2B35; /* Darken(var(--rain),2%) */
+    padding: 10px;
+    text-align: center; /* Center align table data */
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 719px) {
+    thead {
+        display: none;
+    }
+
+    tr, td, tbody, tfoot {
+        display: block;
+    }
+
+    tr {
+        padding-bottom: 10px;
+    }
+
+    td {
+        padding: 10px 10px 0;
+        text-align: center;
+        position: relative;
+    }
+
+    td::before {
+        content: attr(data-title);
+        color: #B2C1C2; /* Lightened color */
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        padding-right: 10px;
+        display: block;
+    }
+}
+
+/* Standard Table Display for Larger Screens */
+@media (min-width: 720px) {
+    thead {
+        display: table-header-group;
+    }
+
+    tr {
+        display: table-row;
+    }
+
+    td, th {
+        display: table-cell;
+        padding: 10px;
+        text-align: center; /* Center align table data */
+    }
+
+    tbody {
+        display: table-row-group;
+    }
+
+    tfoot {
+        display: table-footer-group;
+    }
+
+    td::before {
+        display: none;
+    }
+
+    /* Alternate row colors */
+    tbody tr:nth-child(2n+1) td {
+        background-color: #1A2B35; /* Darken(var(--rain),4%) */
+    }
+
+    tbody tr:nth-child(2n) td {
+        background-color: #2C3845; /* Slightly lighter for contrast */
+    }
+}
+
+/* Error Message Styling */
+.error {
+    color: #FF6B6B;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Loading Indicator Styling */
+#loading {
+    font-size: 1.8rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+}
