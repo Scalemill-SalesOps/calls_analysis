@@ -26,12 +26,12 @@ html.open, body.open {
 }
 
 html {
-    padding: 40px;
+    padding: 20px; /* Reduced padding for better responsiveness */
     font-size: 62.5%;
 }
 
 body {
-    padding: 20px;
+    padding: 10px; /* Reduced padding for better responsiveness */
     background-color: var(--base);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -45,33 +45,64 @@ main {
     background-color: var(--rain);
     padding: 20px;
     border-radius: 8px;
+    max-width: 1200px; /* Maximum width to prevent excessive stretching */
+    width: 90%; /* Responsive width */
+    margin: 0 auto; /* Center the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
+}
+
+@media (max-width: 720px) {
+    main {
+        width: 100%; /* Full width on smaller screens */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (min-width: 1201px) {
+    main {
+        max-width: 1000px; /* Adjust max-width for very large screens if needed */
+    }
 }
 
 /* Logo Styles */
 .logo-container {
     text-align: center;
-    margin-bottom: 2px; /* Space between logo and tables */
+    margin-bottom: 20px; /* Increased space between logo and title */
 }
 
 .logo {
-    max-width: 300px; /* Adjust the size as needed */
-    height: 200px;
-    object-fit: contain; /* Ensure the logo scales properly */
+    max-width: 100%; /* Allow the logo to scale with its container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 150px; /* Limit height to prevent excessive size */
+    object-fit: contain; /* Ensure the logo scales properly without distortion */
+}
+
+@media (max-width: 720px) {
+    .logo {
+        max-width: 200px; /* Smaller size for mobile devices */
+        max-height: 100px;
+    }
+}
+
+@media (min-width: 721px) {
+    .logo {
+        max-width: 300px; /* Default size for larger screens */
+        max-height: 150px;
+    }
 }
 
 /* New Title Styles */
 .page-title {
     text-align: center;
-    font-size: 5rem;
-    margin: 0;
-    padding: 0; /* Adjusted margins for spacing */
+    font-size: 2.4rem;
+    margin: 10px 0 30px 0; /* Increased bottom margin for spacing */
     color: #fff;
 }
 
 /* Project Title */
 .project-title {
     text-align: center;
-    font-size: 2.4rem;
+    font-size: 2rem; /* Slightly reduced font size for hierarchy */
     margin-bottom: 20px;
     color: #fff;
 }
@@ -80,7 +111,14 @@ main {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Increased margin for better separation between tables */
+    table-layout: fixed; /* Ensures uniform column widths */
+    word-wrap: break-word; /* Prevents content from overflowing */
+}
+
+/* Define Column Widths Using colgroup */
+table colgroup col {
+    width: 14.28%; /* 100% / 7 columns ≈ 14.28% each */
 }
 
 /* Table Headers */
@@ -88,24 +126,22 @@ thead th {
     background-color: #22303C; /* Darken(var(--rain), 6%) */
     color: #fff;
     border: 1px solid #22303C;
-    padding: 10px;
+    padding: 15px; /* Increased padding for better readability */
     text-align: center; /* Center align headers */
     font-weight: 700;
+    font-size: 1.6rem;
 }
 
 /* Table Body */
-tbody tr:nth-child(even) {
-    background-color: #1A2B35; /* Darken(var(--rain),4%) */
-}
-
-tbody tr:nth-child(odd) {
-    background-color: #2C3845; /* Slightly lighter for contrast */
+tbody tr {
+    background-color: #1A2B35; /* Consistent row color */
 }
 
 td {
     border: 1px solid #1A2B35; /* Darken(var(--rain),2%) */
-    padding: 10px;
+    padding: 15px; /* Increased padding for better readability */
     text-align: center; /* Center align table data */
+    font-size: 1.4rem;
 }
 
 /* Responsive Design for Small Screens */
@@ -166,14 +202,7 @@ td {
         display: none;
     }
 
-    /* Alternate row colors */
-    tbody tr:nth-child(2n+1) td {
-        background-color: #1A2B35; /* Darken(var(--rain),4%) */
-    }
-
-    tbody tr:nth-child(2n) td {
-        background-color: #2C3845; /* Slightly lighter for contrast */
-    }
+    /* Alternate row colors removed for consistent row color */
 }
 
 /* Error Message Styling */
@@ -182,6 +211,7 @@ td {
     font-weight: bold;
     text-align: center;
     margin-top: 20px;
+    font-size: 1.6rem;
 }
 
 /* Loading Indicator Styling */
@@ -190,4 +220,20 @@ td {
     color: #fff;
     text-align: center;
     margin-top: 20px;
+}
+
+/* Spinner Styles (Optional) */
+.spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 40px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
