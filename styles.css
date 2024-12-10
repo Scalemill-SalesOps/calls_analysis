@@ -2,7 +2,7 @@
 
 /* Base Colors */
 :root {
-    --base: #5BB9B8;
+    --base: #f0f8ff; /* Changed to very light gray (AliceBlue) */
     --subtle: #54a1a0;
     --rain: #2C3845;
     --poppy: #BD2A4E;
@@ -67,7 +67,7 @@ main {
 /* Logo Styles */
 .logo-container {
     text-align: center;
-    margin-bottom: 20px; /* Increased space between logo and title */
+    margin-bottom: 10px; /* Reduced space between logo and title */
 }
 
 .logo {
@@ -95,8 +95,8 @@ main {
 .page-title {
     text-align: center;
     font-size: 2.4rem;
-    margin: 10px 0 30px 0; /* Increased bottom margin for spacing */
-    color: #fff;
+    margin: 5px 0 30px 0; /* Reduced top margin for less gap */
+    color: black;
 }
 
 /* Project Title */
