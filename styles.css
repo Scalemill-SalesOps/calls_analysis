@@ -2,7 +2,7 @@
 
 /* Base Colors */
 :root {
-    --base: #f0f8ff; /* Changed to very light gray (AliceBlue) */
+    --base: #5BB9B8;
     --subtle: #54a1a0;
     --rain: #2C3845;
     --poppy: #BD2A4E;
@@ -32,7 +32,7 @@ html {
 
 body {
     padding: 10px; /* Reduced padding for better responsiveness */
-    background-color: var(--base);
+    background-color: #d0d3d4;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     color: #fff;
@@ -41,12 +41,13 @@ body {
 }
 
 /* Main Content */
+/* Updated Main Content Styles */
 main {
     background-color: var(--rain);
     padding: 20px;
     border-radius: 8px;
-    max-width: 1200px; /* Maximum width to prevent excessive stretching */
-    width: 90%; /* Responsive width */
+    max-width: 1400px; /* Increased from 1200px to 1400px */
+    width: 95%; /* Increased from 90% to 95% */
     margin: 0 auto; /* Center the container */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
 }
@@ -58,16 +59,17 @@ main {
     }
 }
 
-@media (min-width: 1201px) {
+@media (min-width: 1401px) { /* Updated breakpoint to match new max-width */
     main {
-        max-width: 1000px; /* Adjust max-width for very large screens if needed */
+        max-width: 1200px; /* Optional: Adjust max-width for very large screens if needed */
     }
 }
+
 
 /* Logo Styles */
 .logo-container {
     text-align: center;
-    margin-bottom: 10px; /* Reduced space between logo and title */
+    margin-bottom: 20px; /* Increased space between logo and title */
 }
 
 .logo {
@@ -95,8 +97,8 @@ main {
 .page-title {
     text-align: center;
     font-size: 2.4rem;
-    margin: 5px 0 30px 0; /* Reduced top margin for less gap */
-    color: black;
+    margin: 10px 0 30px 0; /* Increased bottom margin for spacing */
+    color: #0B0B0B;
 }
 
 /* Project Title */
@@ -118,7 +120,7 @@ table {
 
 /* Define Column Widths Using colgroup */
 table colgroup col {
-    width: 14.28%; /* 100% / 7 columns ≈ 14.28% each */
+    width: 11.11%; /* 100% / 9 columns ≈ 11.11% each */
 }
 
 /* Table Headers */

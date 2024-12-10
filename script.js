@@ -83,6 +83,15 @@ function sortSdrsDescendingCallsDialedHour(sdrs) {
 }
 
 /**
+ * Formats the Connected value as a percentage string.
+ * @param {number} value - The connected ratio (e.g., 0.1811).
+ * @returns {string} The formatted percentage string (e.g., "18.11%").
+ */
+function formatConnectedPercentage(value) {
+    return `${(value * 100).toFixed(2)}%`;
+}
+
+/**
  * Creates a table for a given project.
  * @param {string} projectName - The name of the project.
  * @param {Array} sdrs - The array of SDR entries for the project.
@@ -107,9 +116,9 @@ function createProjectTable(projectName, sdrs) {
 
     // Create the colgroup for uniform column widths
     const colgroup = document.createElement('colgroup');
-    for (let i = 0; i < 7; i++) { // Assuming 7 columns
+    for (let i = 0; i < 8; i++) { // Now 8 columns
         const col = document.createElement('col');
-        col.style.width = '14.28%'; // 100% / 7 ≈ 14.28%
+        col.style.width = '12.5%'; // 100% / 8 = 12.5%
         colgroup.appendChild(col);
     }
     table.appendChild(colgroup);
@@ -118,11 +127,12 @@ function createProjectTable(projectName, sdrs) {
     const thead = document.createElement('thead');
     const headerRow = document.createElement('tr');
     const headers = [
-        'Project',
         'SDR',
-        'Total Calls',
-        'No. of Working Days',
-        'No. of Working Hours',
+        'Total Calls Dialed',
+        'Calls Answered',
+        'Connected %',
+        'No. of working days',
+        'No. of working hours',
         'Calls Dialed/Day',
         'Calls Dialed/Hour'
     ];
@@ -143,9 +153,10 @@ function createProjectTable(projectName, sdrs) {
         const row = document.createElement('tr');
 
         const cells = [
-            sdr.Project,
             sdr.SDR,
-            sdr.TotalCalls,
+            sdr.TotalCallsDialed,
+            sdr.CallsAnswered,
+            formatConnectedPercentage(sdr.Connected),
             sdr.Noofworkingdays,
             sdr.Noofworkinghours,
             sdr.CallsDialedDay,
